@@ -1,0 +1,6 @@
+[submodule "cpp-httplib"]
+	path = cpp-httplib
+	url = https://github.com/yhirose/cpp-httplib
+[submodule "md5"]
+	path = md5
+	url = https://github.com/JieweiWei/md5

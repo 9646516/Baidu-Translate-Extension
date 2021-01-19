@@ -1,19 +1,10 @@
-# Example Extension
+# Textractor 的百度翻译插件
 
-Every time Textractor has a sentence of text ready, it will call `ProcessSentence` on all extensions it finds sequentially (via `OnNewSentence`)
-After the sentence has been processed by all extensions, it will be displayed.
+基于百度的通用翻译API。抱歉没有编译好的版本，请自行编译。
 
-# SentenceInfo
+## 使用方法
 
-## The following properties are in `SentenceInfo`
-`"current select"`: always 0 unless the sentence is in the text thread selected by the user.<br>
-`"process id"`: process id that the sentence is coming from. 0 for console and clipboard.<br>
-`"text number"`: number of the current text thread. Counts up one by one as text threads are created. 0 for console, 1 for clipboard.<br>
-`"text name"`: pointer to start of a wchar array of the name of the current text thread.<br>
-`"void (*AddSentence)(int64_t number, const wchar_t* sentence)"`: pointer to function that adds a sentence to the text thread with the specified number.<br>
-`"void (*AddText)(int64_t number, const wchar_t* text)"`: similar to AddSentence, but doesn't treat the text like it's a full sentence.<br>
-`"DWORD (*GetSelectedProcessId)()"`: pointer to function that returns the process id currently selected in Textractor's top left dropdown.
+- 先去[百度翻译开放平台](http://api.fanyi.baidu.com/product/11)申请一个QPS高达1而且完全免费的标准版API,并且得到APP ID和Key
+- 修改`src\Extension.cpp`中的appID和appKey
+- 用`MSVC`编译得到dll,在Textractor中挂载即可
 
-# Notes
-
-You just need Visual Studio with basic C++ support to compile this project.
